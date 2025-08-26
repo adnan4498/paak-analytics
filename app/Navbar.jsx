@@ -22,6 +22,8 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  let obj = {name : "adnan", age: 22};
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
@@ -35,7 +37,7 @@ const Navbar = () => {
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                   <Play className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl font-bold text-gray-900">PAC</span>
+                <span className="text-xl font-bold text-gray-900">Pak Analytics Consultancy</span>
               </div>
             </div>
           </div>
@@ -50,7 +52,7 @@ const Navbar = () => {
                   onMouseLeave={() => setIsProductsOpen(false)}
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium flex items-center space-x-1 transition-colors"
                 >
-                  <span>Products</span>
+                  <span>Individual Courses</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 
@@ -61,27 +63,51 @@ const Navbar = () => {
                     className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-100 py-4"
                   >
                     <div className="px-4 py-2">
-                      <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                        <BookOpen className="w-5 h-5 text-blue-600" />
-                        <div>
-                          <div className="font-medium text-gray-900">Online Courses</div>
-                          <div className="text-sm text-gray-500">Create and sell courses</div>
+                      <a href="/courses/csharp" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">C#</span>
                         </div>
-                      </div>
-                      <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                        <Users className="w-5 h-5 text-purple-600" />
                         <div>
-                          <div className="font-medium text-gray-900">Communities</div>
-                          <div className="text-sm text-gray-500">Build learning communities</div>
+                          <div className="font-medium text-gray-900">C# Programming</div>
+                          <div className="text-sm text-gray-500">Master C# development</div>
                         </div>
-                      </div>
-                      <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                        <Award className="w-5 h-5 text-green-600" />
+                      </a>
+                      <a href="/courses/javascript" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">JS</span>
+                        </div>
                         <div>
-                          <div className="font-medium text-gray-900">Memberships</div>
-                          <div className="text-sm text-gray-500">Recurring revenue model</div>
+                          <div className="font-medium text-gray-900">JavaScript</div>
+                          <div className="text-sm text-gray-500">Learn modern JavaScript</div>
                         </div>
-                      </div>
+                      </a>
+                      <a href="/courses/python" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">Py</span>
+                        </div>
+                        <div>
+                          <div className="font-medium text-gray-900">Python</div>
+                          <div className="text-sm text-gray-500">Data science & automation</div>
+                        </div>
+                      </a>
+                      <a href="/courses/react" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">⚛</span>
+                        </div>
+                        <div>
+                          <div className="font-medium text-gray-900">React.js</div>
+                          <div className="text-sm text-gray-500">Build modern UIs</div>
+                        </div>
+                      </a>
+                      <a href="/courses/nodejs" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">Node</span>
+                        </div>
+                        <div>
+                          <div className="font-medium text-gray-900">Node.js</div>
+                          <div className="text-sm text-gray-500">Backend development</div>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 )}
@@ -94,7 +120,7 @@ const Navbar = () => {
                   onMouseLeave={() => setIsSolutionsOpen(false)}
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium flex items-center space-x-1 transition-colors"
                 >
-                  <span>Solutions</span>
+                  <span>Group C</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 
@@ -175,8 +201,8 @@ const Navbar = () => {
               <button className="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors">
                 Log in
               </button>
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105">
-                Start Free Trial
+              <button className="cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105">
+                Sign Up
               </button>
             </div>
 
@@ -233,19 +259,37 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100">
               <div className="space-y-4 py-4">
                 <div>
-                  <div className="text-sm font-semibold text-gray-900 px-3 py-2">Products</div>
+                  <div className="text-sm font-semibold text-gray-900 px-3 py-2">Individual Courses</div>
                   <div className="ml-4 space-y-2">
-                    <a href="#" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
-                      <BookOpen className="w-4 h-4" />
-                      <span>Online Courses</span>
+                    <a href="/courses/csharp" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                      <div className="w-6 h-6 bg-gradient-to-br from-purple-600 to-pink-600 rounded flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">C#</span>
+                      </div>
+                      <span>C# Programming</span>
                     </a>
-                    <a href="#" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
-                      <Users className="w-4 h-4" />
-                      <span>Communities</span>
+                    <a href="/courses/javascript" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                      <div className="w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">JS</span>
+                      </div>
+                      <span>JavaScript</span>
                     </a>
-                    <a href="#" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
-                      <Award className="w-4 h-4" />
-                      <span>Memberships</span>
+                    <a href="/courses/python" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                      <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-green-500 rounded flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">Py</span>
+                      </div>
+                      <span>Python</span>
+                    </a>
+                    <a href="/courses/react" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                      <div className="w-6 h-6 bg-gradient-to-br from-cyan-400 to-blue-500 rounded flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">⚛</span>
+                      </div>
+                      <span>React.js</span>
+                    </a>
+                    <a href="/courses/nodejs" className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                      <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-green-700 rounded flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">Node</span>
+                      </div>
+                      <span>Node.js</span>
                     </a>
                   </div>
                 </div>

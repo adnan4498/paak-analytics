@@ -281,9 +281,9 @@ const Homepage = () => {
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Create & sell 
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> online courses </span>
-                that students love
+                Online
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Professional </span>
+                Training
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
