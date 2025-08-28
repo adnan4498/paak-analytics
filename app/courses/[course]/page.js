@@ -1,241 +1,534 @@
 "use client"
 import React, { useState } from 'react';
 import { Star, Clock, Users, Play, BookOpen, Filter, Search, ChevronDown } from 'lucide-react';
+import { Slider } from 'antd';
 import Navbar from '../../Navbar';
+import 'antd/dist/reset.css';
 
 const CoursePage = ({ params }) => {
   const [selectedRating, setSelectedRating] = useState('all');
   const [selectedLevel, setSelectedLevel] = useState('all');
-  const [selectedPrice, setSelectedPrice] = useState('all');
+  const [priceRange, setPriceRange] = useState([0, 10000]);
 
   // Course data for different programming languages
+  // const courseData = {
+  //   csharp: {
+  //     title: "C# Programming Courses",
+  //     description: "Master C# development with our comprehensive courses",
+  //     courses: [
+  //       {
+  //         id: 1,
+  //         title: "Complete C# Masterclass",
+  //         instructor: "John Smith",
+  //         rating: 4.7,
+  //         students: 15420,
+  //         price: 89.99,
+  //         originalPrice: 199.99,
+  //         duration: "42.5 hours",
+  //         lectures: 350,
+  //         level: "Beginner",
+  //         image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Learn C# programming from scratch to advanced concepts including OOP, LINQ, and .NET development."
+  //       },
+  //       {
+  //         id: 2,
+  //         title: "C# Advanced Topics",
+  //         instructor: "Sarah Johnson",
+  //         rating: 4.8,
+  //         students: 8920,
+  //         price: 69.99,
+  //         originalPrice: 149.99,
+  //         duration: "28.3 hours",
+  //         lectures: 245,
+  //         level: "Intermediate",
+  //         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
+  //         bestseller: false,
+  //         description: "Deep dive into advanced C# concepts like async/await, reflection, and performance optimization."
+  //       },
+  //       {
+  //         id: 3,
+  //         title: "C# Web Development with ASP.NET",
+  //         instructor: "Mike Chen",
+  //         rating: 4.6,
+  //         students: 12350,
+  //         price: 79.99,
+  //         originalPrice: 179.99,
+  //         duration: "35.7 hours",
+  //         lectures: 298,
+  //         level: "Intermediate",
+  //         image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Build modern web applications using C# and ASP.NET Core with real-world projects."
+  //       },
+  //       {
+  //         id: 4,
+  //         title: "C# Game Development with Unity",
+  //         instructor: "Alex Rodriguez",
+  //         rating: 4.9,
+  //         students: 18760,
+  //         price: 94.99,
+  //         originalPrice: 199.99,
+  //         duration: "48.2 hours",
+  //         lectures: 412,
+  //         level: "Beginner",
+  //         image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Create amazing games using C# and Unity game engine. Perfect for beginners!"
+  //       },
+  //       {
+  //         id: 5,
+  //         title: "C# Database Programming",
+  //         instructor: "Lisa Wang",
+  //         rating: 4.5,
+  //         students: 6540,
+  //         price: 59.99,
+  //         originalPrice: 129.99,
+  //         duration: "22.1 hours",
+  //         lectures: 185,
+  //         level: "Intermediate",
+  //         image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop",
+  //         bestseller: false,
+  //         description: "Learn to work with databases using C#, Entity Framework, and SQL Server."
+  //       },
+  //       {
+  //         id: 6,
+  //         title: "C# Design Patterns",
+  //         instructor: "David Kim",
+  //         rating: 4.7,
+  //         students: 7890,
+  //         price: 74.99,
+  //         originalPrice: 159.99,
+  //         duration: "31.8 hours",
+  //         lectures: 267,
+  //         level: "Advanced",
+  //         image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+  //         bestseller: false,
+  //         description: "Master software design patterns and SOLID principles in C# development."
+  //       },
+  //       // Adding some higher-priced courses to demonstrate the slider
+  //       {
+  //         id: 7,
+  //         title: "C# Enterprise Application Development",
+  //         instructor: "Robert Taylor",
+  //         rating: 4.8,
+  //         students: 5430,
+  //         price: 299.99,
+  //         originalPrice: 499.99,
+  //         duration: "62.5 hours",
+  //         lectures: 520,
+  //         level: "Advanced",
+  //         image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Build enterprise-level applications with C# and advanced architectural patterns."
+  //       },
+  //       {
+  //         id: 8,
+  //         title: "C# Microservices Masterclass",
+  //         instructor: "Jennifer Lee",
+  //         rating: 4.9,
+  //         students: 4320,
+  //         price: 399.99,
+  //         originalPrice: 599.99,
+  //         duration: "75.3 hours",
+  //         lectures: 610,
+  //         level: "Advanced",
+  //         image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Learn to build scalable microservices architectures using C# and .NET."
+  //       }
+  //     ]
+  //   },
+  //   javascript: {
+  //     title: "JavaScript Programming Courses",
+  //     description: "Learn modern JavaScript development from basics to advanced",
+  //     courses: [
+  //       {
+  //         id: 1,
+  //         title: "JavaScript Fundamentals",
+  //         instructor: "Emily Davis",
+  //         rating: 4.8,
+  //         students: 23450,
+  //         price: 79.99,
+  //         originalPrice: 169.99,
+  //         duration: "38.2 hours",
+  //         lectures: 320,
+  //         level: "Beginner",
+  //         image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Start your JavaScript journey with this comprehensive beginner course."
+  //       },
+  //       {
+  //         id: 2,
+  //         title: "Modern JavaScript ES6+",
+  //         instructor: "Tom Wilson",
+  //         rating: 4.7,
+  //         students: 15680,
+  //         price: 69.99,
+  //         originalPrice: 149.99,
+  //         duration: "29.5 hours",
+  //         lectures: 245,
+  //         level: "Intermediate",
+  //         image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Master modern JavaScript features including ES6, async/await, and modules."
+  //       },
+  //       {
+  //         id: 3,
+  //         title: "JavaScript React Masterclass",
+  //         instructor: "Rachel Green",
+  //         rating: 4.9,
+  //         students: 19870,
+  //         price: 89.99,
+  //         originalPrice: 189.99,
+  //         duration: "45.3 hours",
+  //         lectures: 378,
+  //         level: "Intermediate",
+  //         image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Build modern web applications with React and JavaScript."
+  //       }
+  //     ]
+  //   },
+  //   python: {
+  //     title: "Python Programming Courses",
+  //     description: "Master Python for data science, automation, and web development",
+  //     courses: [
+  //       {
+  //         id: 1,
+  //         title: "Python for Beginners",
+  //         instructor: "Dr. Sarah Miller",
+  //         rating: 4.8,
+  //         students: 45670,
+  //         price: 69.99,
+  //         originalPrice: 149.99,
+  //         duration: "35.8 hours",
+  //         lectures: 298,
+  //         level: "Beginner",
+  //         image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Learn Python programming from scratch with hands-on projects."
+  //       },
+  //       {
+  //         id: 2,
+  //         title: "Python Data Science",
+  //         instructor: "Prof. James Chen",
+  //         rating: 4.9,
+  //         students: 28940,
+  //         price: 89.99,
+  //         originalPrice: 179.99,
+  //         duration: "42.1 hours",
+  //         lectures: 356,
+  //         level: "Intermediate",
+  //         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Master data analysis, visualization, and machine learning with Python."
+  //       }
+  //     ]
+  //   },
+  //   react: {
+  //     title: "React.js Development Courses",
+  //     description: "Build modern user interfaces with React.js",
+  //     courses: [
+  //       {
+  //         id: 1,
+  //         title: "React.js Complete Guide",
+  //         instructor: "Alex Thompson",
+  //         rating: 4.8,
+  //         students: 32450,
+  //         price: 84.99,
+  //         originalPrice: 179.99,
+  //         duration: "48.7 hours",
+  //         lectures: 412,
+  //         level: "Beginner",
+  //         image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Learn React.js from fundamentals to advanced concepts with real projects."
+  //       }
+  //     ]
+  //   },
+  //   nodejs: {
+  //     title: "Node.js Backend Development",
+  //     description: "Master server-side JavaScript with Node.js",
+  //     courses: [
+  //       {
+  //         id: 1,
+  //         title: "Node.js Backend Masterclass",
+  //         instructor: "Chris Anderson",
+  //         rating: 4.7,
+  //         students: 18760,
+  //         price: 79.99,
+  //         originalPrice: 169.99,
+  //         duration: "39.2 hours",
+  //         lectures: 334,
+  //         level: "Intermediate",
+  //         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
+  //         bestseller: true,
+  //         description: "Build scalable backend applications with Node.js, Express, and MongoDB."
+  //       }
+  //     ]
+  //   }
+  // };
+
+
   const courseData = {
-    csharp: {
-      title: "C# Programming Courses",
-      description: "Master C# development with our comprehensive courses",
-      courses: [
-        {
-          id: 1,
-          title: "Complete C# Masterclass",
-          instructor: "John Smith",
-          rating: 4.7,
-          students: 15420,
-          price: 89.99,
-          originalPrice: 199.99,
-          duration: "42.5 hours",
-          lectures: 350,
-          level: "Beginner",
-          image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Learn C# programming from scratch to advanced concepts including OOP, LINQ, and .NET development."
-        },
-        {
-          id: 2,
-          title: "C# Advanced Topics",
-          instructor: "Sarah Johnson",
-          rating: 4.8,
-          students: 8920,
-          price: 69.99,
-          originalPrice: 149.99,
-          duration: "28.3 hours",
-          lectures: 245,
-          level: "Intermediate",
-          image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
-          bestseller: false,
-          description: "Deep dive into advanced C# concepts like async/await, reflection, and performance optimization."
-        },
-        {
-          id: 3,
-          title: "C# Web Development with ASP.NET",
-          instructor: "Mike Chen",
-          rating: 4.6,
-          students: 12350,
-          price: 79.99,
-          originalPrice: 179.99,
-          duration: "35.7 hours",
-          lectures: 298,
-          level: "Intermediate",
-          image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Build modern web applications using C# and ASP.NET Core with real-world projects."
-        },
-        {
-          id: 4,
-          title: "C# Game Development with Unity",
-          instructor: "Alex Rodriguez",
-          rating: 4.9,
-          students: 18760,
-          price: 94.99,
-          originalPrice: 199.99,
-          duration: "48.2 hours",
-          lectures: 412,
-          level: "Beginner",
-          image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Create amazing games using C# and Unity game engine. Perfect for beginners!"
-        },
-        {
-          id: 5,
-          title: "C# Database Programming",
-          instructor: "Lisa Wang",
-          rating: 4.5,
-          students: 6540,
-          price: 59.99,
-          originalPrice: 129.99,
-          duration: "22.1 hours",
-          lectures: 185,
-          level: "Intermediate",
-          image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop",
-          bestseller: false,
-          description: "Learn to work with databases using C#, Entity Framework, and SQL Server."
-        },
-        {
-          id: 6,
-          title: "C# Design Patterns",
-          instructor: "David Kim",
-          rating: 4.7,
-          students: 7890,
-          price: 74.99,
-          originalPrice: 159.99,
-          duration: "31.8 hours",
-          lectures: 267,
-          level: "Advanced",
-          image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
-          bestseller: false,
-          description: "Master software design patterns and SOLID principles in C# development."
-        }
-      ]
-    },
-    javascript: {
-      title: "JavaScript Programming Courses",
-      description: "Learn modern JavaScript development from basics to advanced",
-      courses: [
-        {
-          id: 1,
-          title: "JavaScript Fundamentals",
-          instructor: "Emily Davis",
-          rating: 4.8,
-          students: 23450,
-          price: 79.99,
-          originalPrice: 169.99,
-          duration: "38.2 hours",
-          lectures: 320,
-          level: "Beginner",
-          image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Start your JavaScript journey with this comprehensive beginner course."
-        },
-        {
-          id: 2,
-          title: "Modern JavaScript ES6+",
-          instructor: "Tom Wilson",
-          rating: 4.7,
-          students: 15680,
-          price: 69.99,
-          originalPrice: 149.99,
-          duration: "29.5 hours",
-          lectures: 245,
-          level: "Intermediate",
-          image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Master modern JavaScript features including ES6, async/await, and modules."
-        },
-        {
-          id: 3,
-          title: "JavaScript React Masterclass",
-          instructor: "Rachel Green",
-          rating: 4.9,
-          students: 19870,
-          price: 89.99,
-          originalPrice: 189.99,
-          duration: "45.3 hours",
-          lectures: 378,
-          level: "Intermediate",
-          image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Build modern web applications with React and JavaScript."
-        }
-      ]
-    },
-    python: {
-      title: "Python Programming Courses",
-      description: "Master Python for data science, automation, and web development",
-      courses: [
-        {
-          id: 1,
-          title: "Python for Beginners",
-          instructor: "Dr. Sarah Miller",
-          rating: 4.8,
-          students: 45670,
-          price: 69.99,
-          originalPrice: 149.99,
-          duration: "35.8 hours",
-          lectures: 298,
-          level: "Beginner",
-          image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Learn Python programming from scratch with hands-on projects."
-        },
-        {
-          id: 2,
-          title: "Python Data Science",
-          instructor: "Prof. James Chen",
-          rating: 4.9,
-          students: 28940,
-          price: 89.99,
-          originalPrice: 179.99,
-          duration: "42.1 hours",
-          lectures: 356,
-          level: "Intermediate",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Master data analysis, visualization, and machine learning with Python."
-        }
-      ]
-    },
-    react: {
-      title: "React.js Development Courses",
-      description: "Build modern user interfaces with React.js",
-      courses: [
-        {
-          id: 1,
-          title: "React.js Complete Guide",
-          instructor: "Alex Thompson",
-          rating: 4.8,
-          students: 32450,
-          price: 84.99,
-          originalPrice: 179.99,
-          duration: "48.7 hours",
-          lectures: 412,
-          level: "Beginner",
-          image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Learn React.js from fundamentals to advanced concepts with real projects."
-        }
-      ]
-    },
-    nodejs: {
-      title: "Node.js Backend Development",
-      description: "Master server-side JavaScript with Node.js",
-      courses: [
-        {
-          id: 1,
-          title: "Node.js Backend Masterclass",
-          instructor: "Chris Anderson",
-          rating: 4.7,
-          students: 18760,
-          price: 79.99,
-          originalPrice: 169.99,
-          duration: "39.2 hours",
-          lectures: 334,
-          level: "Intermediate",
-          image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
-          bestseller: true,
-          description: "Build scalable backend applications with Node.js, Express, and MongoDB."
-        }
-      ]
-    }
-  };
+  csharp: {
+    title: "C# Programming Courses",
+    description: "Master C# development with our comprehensive courses",
+    courses: [
+      {
+        id: 1,
+        title: "Complete C# Masterclass",
+        instructor: "John Smith",
+        rating: 4.7,
+        students: 15420,
+        price: 4500,
+        originalPrice: 8000,
+        duration: "42.5 hours",
+        lectures: 350,
+        level: "Beginner",
+        image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Learn C# programming from scratch to advanced concepts including OOP, LINQ, and .NET development."
+      },
+      {
+        id: 2,
+        title: "C# Advanced Topics",
+        instructor: "Sarah Johnson",
+        rating: 4.8,
+        students: 8920,
+        price: 3800,
+        originalPrice: 7200,
+        duration: "28.3 hours",
+        lectures: 245,
+        level: "Intermediate",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
+        bestseller: false,
+        description: "Deep dive into advanced C# concepts like async/await, reflection, and performance optimization."
+      },
+      {
+        id: 3,
+        title: "C# Web Development with ASP.NET",
+        instructor: "Mike Chen",
+        rating: 4.6,
+        students: 12350,
+        price: 5000,
+        originalPrice: 9000,
+        duration: "35.7 hours",
+        lectures: 298,
+        level: "Intermediate",
+        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Build modern web applications using C# and ASP.NET Core with real-world projects."
+      },
+      {
+        id: 4,
+        title: "C# Game Development with Unity",
+        instructor: "Alex Rodriguez",
+        rating: 4.9,
+        students: 18760,
+        price: 6000,
+        originalPrice: 9500,
+        duration: "48.2 hours",
+        lectures: 412,
+        level: "Beginner",
+        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Create amazing games using C# and Unity game engine. Perfect for beginners!"
+      },
+      {
+        id: 5,
+        title: "C# Database Programming",
+        instructor: "Lisa Wang",
+        rating: 4.5,
+        students: 6540,
+        price: 3200,
+        originalPrice: 6500,
+        duration: "22.1 hours",
+        lectures: 185,
+        level: "Intermediate",
+        image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop",
+        bestseller: false,
+        description: "Learn to work with databases using C#, Entity Framework, and SQL Server."
+      },
+      {
+        id: 6,
+        title: "C# Design Patterns",
+        instructor: "David Kim",
+        rating: 4.7,
+        students: 7890,
+        price: 4000,
+        originalPrice: 7500,
+        duration: "31.8 hours",
+        lectures: 267,
+        level: "Advanced",
+        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+        bestseller: false,
+        description: "Master software design patterns and SOLID principles in C# development."
+      },
+      {
+        id: 7,
+        title: "C# Enterprise Application Development",
+        instructor: "Robert Taylor",
+        rating: 4.8,
+        students: 5430,
+        price: 8500,
+        originalPrice: 10000,
+        duration: "62.5 hours",
+        lectures: 520,
+        level: "Advanced",
+        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Build enterprise-level applications with C# and advanced architectural patterns."
+      },
+      {
+        id: 8,
+        title: "C# Microservices Masterclass",
+        instructor: "Jennifer Lee",
+        rating: 4.9,
+        students: 4320,
+        price: 9000,
+        originalPrice: 10000,
+        duration: "75.3 hours",
+        lectures: 610,
+        level: "Advanced",
+        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Learn to build scalable microservices architectures using C# and .NET."
+      }
+    ]
+  },
+  javascript: {
+    title: "JavaScript Programming Courses",
+    description: "Learn modern JavaScript development from basics to advanced",
+    courses: [
+      {
+        id: 1,
+        title: "JavaScript Fundamentals",
+        instructor: "Emily Davis",
+        rating: 4.8,
+        students: 23450,
+        price: 4200,
+        originalPrice: 7000,
+        duration: "38.2 hours",
+        lectures: 320,
+        level: "Beginner",
+        image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Start your JavaScript journey with this comprehensive beginner course."
+      },
+      {
+        id: 2,
+        title: "Modern JavaScript ES6+",
+        instructor: "Tom Wilson",
+        rating: 4.7,
+        students: 15680,
+        price: 3500,
+        originalPrice: 6800,
+        duration: "29.5 hours",
+        lectures: 245,
+        level: "Intermediate",
+        image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Master modern JavaScript features including ES6, async/await, and modules."
+      },
+      {
+        id: 3,
+        title: "JavaScript React Masterclass",
+        instructor: "Rachel Green",
+        rating: 4.9,
+        students: 19870,
+        price: 5000,
+        originalPrice: 8800,
+        duration: "45.3 hours",
+        lectures: 378,
+        level: "Intermediate",
+        image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Build modern web applications with React and JavaScript."
+      }
+    ]
+  },
+  python: {
+    title: "Python Programming Courses",
+    description: "Master Python for data science, automation, and web development",
+    courses: [
+      {
+        id: 1,
+        title: "Python for Beginners",
+        instructor: "Dr. Sarah Miller",
+        rating: 4.8,
+        students: 45670,
+        price: 3500,
+        originalPrice: 7000,
+        duration: "35.8 hours",
+        lectures: 298,
+        level: "Beginner",
+        image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Learn Python programming from scratch with hands-on projects."
+      },
+      {
+        id: 2,
+        title: "Python Data Science",
+        instructor: "Prof. James Chen",
+        rating: 4.9,
+        students: 28940,
+        price: 4800,
+        originalPrice: 8500,
+        duration: "42.1 hours",
+        lectures: 356,
+        level: "Intermediate",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Master data analysis, visualization, and machine learning with Python."
+      }
+    ]
+  },
+  react: {
+    title: "React.js Development Courses",
+    description: "Build modern user interfaces with React.js",
+    courses: [
+      {
+        id: 1,
+        title: "React.js Complete Guide",
+        instructor: "Alex Thompson",
+        rating: 4.8,
+        students: 32450,
+        price: 4600,
+        originalPrice: 8800,
+        duration: "48.7 hours",
+        lectures: 412,
+        level: "Beginner",
+        image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Learn React.js from fundamentals to advanced concepts with real projects."
+      }
+    ]
+  },
+  nodejs: {
+    title: "Node.js Backend Development",
+    description: "Master server-side JavaScript with Node.js",
+    courses: [
+      {
+        id: 1,
+        title: "Node.js Backend Masterclass",
+        instructor: "Chris Anderson",
+        rating: 4.7,
+        students: 18760,
+        price: 4000,
+        originalPrice: 7800,
+        duration: "39.2 hours",
+        lectures: 334,
+        level: "Intermediate",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
+        bestseller: true,
+        description: "Build scalable backend applications with Node.js, Express, and MongoDB."
+      }
+    ]
+  }
+};
+
 
   const currentCourse = courseData[params.course] || courseData.csharp;
   const [filteredCourses, setFilteredCourses] = useState(currentCourse.courses);
@@ -252,24 +545,27 @@ const CoursePage = ({ params }) => {
       filtered = filtered.filter(course => course.level === selectedLevel);
     }
 
-    if (selectedPrice !== 'all') {
-      if (selectedPrice === 'free') {
-        filtered = filtered.filter(course => course.price === 0);
-      } else if (selectedPrice === 'paid') {
-        filtered = filtered.filter(course => course.price > 0);
-      }
-    }
+    // Apply price range filter
+    filtered = filtered.filter(course => 
+      course.price >= priceRange[0] && course.price <= priceRange[1]
+    );
 
     setFilteredCourses(filtered);
   };
 
   React.useEffect(() => {
     applyFilters();
-  }, [selectedRating, selectedLevel, selectedPrice]);
+  }, [selectedRating, selectedLevel, priceRange]);
 
   React.useEffect(() => {
     setFilteredCourses(currentCourse.courses);
+    // Reset price range when course changes
+    setPriceRange([0, 10000]);
   }, [params.course]);
+
+  const formatPrice = (value) => {
+    return `$${value}`;
+  };
 
   return (
     <>
@@ -328,18 +624,24 @@ const CoursePage = ({ params }) => {
                   </select>
                 </div>
 
-                {/* Price Filter */}
+                {/* Price Filter with Ant Design Slider */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-gray-900 mb-3">Price</h4>
-                  <select 
-                    value={selectedPrice} 
-                    onChange={(e) => setSelectedPrice(e.target.value)}
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm"
-                  >
-                    <option value="all">All Prices</option>
-                    <option value="free">Free</option>
-                    <option value="paid">Paid</option>
-                  </select>
+                  <h4 className="font-medium text-gray-900 mb-3">Price Range</h4>
+                  <Slider
+                    range
+                    min={0}
+                    max={10000}
+                    step={1000}
+                    value={priceRange}
+                    onChange={setPriceRange}
+                    tooltip={{
+                      formatter: formatPrice
+                    }}
+                  />
+                  <div className="flex justify-between mt-2 text-sm text-gray-500">
+                    <span>${priceRange[0]}</span>
+                    <span>${priceRange[1]}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -432,7 +734,7 @@ const CoursePage = ({ params }) => {
                     onClick={() => {
                       setSelectedRating('all');
                       setSelectedLevel('all');
-                      setSelectedPrice('all');
+                      setPriceRange([0, 10000]);
                     }}
                     className="mt-4 text-blue-600 hover:text-blue-700 font-medium"
                   >
