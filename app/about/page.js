@@ -547,7 +547,7 @@ const About = () => {
                   <Carousel
                     responsive={responsive}
                     infinite={true}
-                    autoPlay={false}
+                    autoPlay={true}
                     autoPlaySpeed={2000}
                     Center mode={true}
                     keyBoardControl={true}
@@ -566,7 +566,7 @@ const About = () => {
                           src={logo}
                           width={120}
                           height={60}
-                          className="rounded-full h-24 w-24 bg-white"
+                          className="rounded-full h-36 w-36 object-contain bg-white"
                           alt={`Company Logo ${index + 1}`}
                         />
                       </div>
