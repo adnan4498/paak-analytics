@@ -369,7 +369,7 @@ const About = () => {
           <div className="md:col-span-2">
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Areas of Expertise
+                {/* Areas of Expertise */}
               </h2>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

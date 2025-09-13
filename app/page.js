@@ -26,6 +26,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Homepage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -144,7 +145,7 @@ const Homepage = () => {
       heading1: "Start Smart, Learn at Your Pace",
       heading2:
         "Entry-level plan with no expiry, light discounts on sessions, and certificates to mark your progress.",
-      price: " 0",
+      price: "PKR 0",
       period: "No Expiry",
       description: "Perfect for getting started",
       features: [
@@ -161,7 +162,7 @@ const Homepage = () => {
       heading1: "Affordable Growth, Extra Support",
       heading2:
         "Budget-friendly yearly plan with access to most courses, early booking privileges, and short post-session support.",
-      price: " 40,000",
+      price: "PKR 40,000",
       period: "1 Year",
       description: "For growing creators",
       features: [
@@ -181,7 +182,7 @@ const Homepage = () => {
       heading1: "Maximum Value, Deeper Learning",
       heading2:
         "A well-balanced yearly plan with high discounts, extended post-session support, and priority access to book sessions.",
-      price: " 70,000",
+      price: " PKR 70,000",
       period: "1 Year",
       description: "For serious educators",
       features: [
@@ -201,7 +202,7 @@ const Homepage = () => {
       heading1: "All-Inclusive Premium Experience",
       heading2:
         "Top-tier yearly plan with no restrictions, the highest discounts, and the most comprehensive support for both individual and group sessions.",
-      price: " 150,000",
+      price: "PKR 150,000",
       period: "1 Year",
       description: "For teams and organizations",
       features: [
@@ -461,8 +462,7 @@ const Homepage = () => {
       </section>
 
       {/* Pricing Section */}
-      {/* Pricing Section */}
-      {/* Pricing Section */}
+
       <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -654,6 +654,145 @@ const Homepage = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Certification Options
+            </h2>
+            <p className="text-xl text-gray-600">
+              Get certified by test with our comprehensive assessment program
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
+            <div className="text-center mb-10">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                Example Calculation (Certification by Test)
+              </h3>
+              <p className="text-lg text-gray-600">
+                Course Base Price = 70,000 PKR
+              </p>
+              <p className="text-sm text-gray-500 mt-2">
+                Certification by Test = 35% of discounted course price
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Basic Plan Certification */}
+              <div className="relative rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 bg-gradient-to-b from-blue-50 to-white ring-2 ring-blue-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-blue-700 mb-2">
+                    Basic Plan
+                  </h3>
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-600">Course Discount: 0%</p>
+                    <p className="text-sm text-gray-600">
+                      Discounted Price: 70,000 PKR
+                    </p>
+                  </div>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-2xl font-bold text-gray-900">
+                      24,500 PKR
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Certification by Test
+                  </p>
+                </div>
+              </div>
+
+              {/* Silver Plan Certification */}
+              <div className="relative rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 bg-gradient-to-b from-gray-50 to-white ring-2 ring-gray-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-gray-700 mb-2">
+                    Silver Plan
+                  </h3>
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-600">
+                      Course Discount: 25%
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Discounted Price: 52,500 PKR
+                    </p>
+                  </div>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-2xl font-bold text-gray-900">
+                      18,375 PKR
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Certification by Test
+                  </p>
+                </div>
+              </div>
+
+              {/* Gold Plan Certification */}
+              <div className="relative rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 bg-gradient-to-b from-amber-50 to-white ring-2 ring-amber-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-amber-700 mb-2">
+                    Gold Plan
+                  </h3>
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-600">
+                      Course Discount: 50%
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Discounted Price: 35,000 PKR
+                    </p>
+                  </div>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-2xl font-bold text-gray-900">
+                      12,250 PKR
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Certification by Test
+                  </p>
+                </div>
+              </div>
+
+              {/* Platinum Plan Certification */}
+              <div className="relative rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 bg-gradient-to-b from-green-50 to-white ring-2 ring-green-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-green-700 mb-2">
+                    Platinum Plan
+                  </h3>
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-600">
+                      Course Discount: 60%
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Discounted Price: 28,000 PKR
+                    </p>
+                  </div>
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-2xl font-bold text-gray-900">
+                      9,800 PKR
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Certification by Test
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <p className="text-gray-600">
+              Ready to get certified?{" "}
+              <a
+                href="#"
+                className="text-blue-600 hover:text-blue-700 font-medium"
+              >
+                Schedule your certification test today
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -683,143 +822,7 @@ const Homepage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {/* Logo and description */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                  <Play className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold">LearnHub</span>
-              </div>
-              <p className="text-gray-300 mb-6 max-w-md">
-                Empowering professionals to build, market, and sell online
-                courses that transform lives and businesses worldwide.
-              </p>
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 cursor-pointer transition-colors">
-                  <Globe className="w-5 h-5" />
-                </div>
-                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 cursor-pointer transition-colors">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 cursor-pointer transition-colors">
-                  <Video className="w-5 h-5" />
-                </div>
-              </div>
-            </div>
-
-            {/* Links */}
-            <div>
-              <h4 className="font-semibold mb-4">Courses</h4>
-              <ul className="space-y-3 text-gray-300">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    All Courses
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    New Arrivals
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Popular
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Certification
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-3 text-gray-300">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Webinars
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Case Studies
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-3 text-gray-300">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Instructors
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm">
-                © 2024 LearnHub. All rights reserved.
-              </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                >
-                  Terms of Service
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                >
-                  Cookies
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
