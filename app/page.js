@@ -24,6 +24,7 @@ import {
   Heart,
   ChevronLeft,
   ChevronRight,
+  Headset,
 } from "lucide-react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -42,101 +43,138 @@ const Homepage = () => {
 
   const features = [
     {
-      icon: <Video className="w-6 h-6" />,
-      title: "Video Hosting",
-      description: "Stream HD videos with adaptive playback",
+      icon: "📹 ",
+      title: "Interactive Learning",
+      description:
+        "Engaging sessions with practical case studies and real-world examples.",
     },
     {
-      icon: <FileText className="w-6 h-6" />,
-      title: "Course Builder",
-      description: "Drag & drop course creation tools",
+      icon: "👨‍🎓",
+      title: "Student Support",
+      description:
+        "Guidance, progress tracking, and mentorship throughout your learning journey.",
     },
     {
-      icon: <Users className="w-6 h-6" />,
-      title: "Student Management",
-      description: "Track progress and engagement",
+      icon: "📊",
+      title: "Practical Insights",
+      description:
+        "Hands-on projects and data-driven exercises for real skill development.",
     },
     {
-      icon: <BarChart3 className="w-6 h-6" />,
-      title: "Analytics",
-      description: "Detailed insights and reporting",
+      icon: "💬",
+      title: "Collaborative Learning",
+      description:
+        "Group classes, discussions, and knowledge sharing across industries.",
     },
     {
-      icon: <MessageCircle className="w-6 h-6" />,
-      title: "Community",
-      description: "Interactive discussions and forums",
-    },
-    {
-      icon: <Award className="w-6 h-6" />,
-      title: "Certificates",
-      description: "Custom completion certificates",
+      icon: "🏆",
+      title: "Verified Certificates",
+      description:
+        "Recognized certificates that can be validated online to boost your professional profile.",
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Online Educator",
-      company: "EduTech Pro",
-      avatar: "SJ",
-      content:
-        "LearnHub transformed how I deliver courses. The platform is intuitive and my students love the interactive features.",
-      rating: 5,
-    },
-    {
-      name: "Michael Chen",
-      role: "Corporate Trainer",
-      company: "TechCorp",
-      avatar: "MC",
-      content:
-        "We scaled our training programs effortlessly. The analytics help us understand what works best for our teams.",
-      rating: 5,
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Creative Coach",
-      company: "Artisan Academy",
-      avatar: "ER",
-      content:
-        "The community features keep my students engaged long after they complete the courses. Amazing platform!",
-      rating: 5,
-    },
-  ];
+const testimonials = [
+  {
+    name: "Adnan Khan",
+    role: "Data Analyst",
+    avatar: "AK",
+    content:
+      "💬 The data analytics training was practical and hands-on. I can now apply these techniques directly in my role.",
+    rating: 5,
+  },
+  {
+    name: "Bilal Hussain",
+    role: "Junior Analyst, Education Sector",
+    avatar: "BH",
+    content:
+      "💬 The programming workshops were beginner-friendly yet detailed. I feel confident writing scripts to automate my work now.",
+    rating: 5,
+  },
+  {
+    name: "Suffiyan Ahmed Khan",
+    role: "Full Stack Developer",
+    avatar: "SAK",
+    content:
+      "💬 The Shariah-compliant investment training gave me a clear understanding of ethical investment opportunities.",
+    rating: 5,
+  },
+  {
+    name: "Faisal Raza",
+    role: "Graduate Trainee",
+    avatar: "FR",
+    content:
+      "💬 The trainer explained complex topics with simple, real-life examples. It made learning both easy and enjoyable.",
+    rating: 5,
+  },
+  {
+    name: "Hamid Ali",
+    role: "Student, Business Intelligence Course",
+    avatar: "HA",
+    content:
+      "💬 The certificate verification system gives credibility to my achievement and makes it easy to showcase my skills.",
+    rating: 5,
+  },
+];
+
 
   const courseCategories = [
     {
-      icon: <Code className="w-8 h-8" />,
-      name: "Programming",
-      courses: "12,000+",
+      icon: "📊",
+      name: "Data Analytics",
+      description: "Transform raw data into actionable insights.",
     },
     {
-      icon: <Palette className="w-8 h-8" />,
-      name: "Design",
-      courses: "8,500+",
+      icon: "📈",
+      name: "Business Intelligence",
+      description:
+        "Master dashboards, reporting, and data-driven decision-making.",
     },
     {
-      icon: <Camera className="w-8 h-8" />,
-      name: "Photography",
-      courses: "3,200+",
-    },
-    { icon: <Music className="w-8 h-8" />, name: "Music", courses: "4,800+" },
-    {
-      icon: <Calculator className="w-8 h-8" />,
-      name: "Business",
-      courses: "15,000+",
+      icon: "💻",
+      name: "Programming & Tools",
+      description:
+        "Gain hands-on experience with essential programming languages and analytics platforms.",
     },
     {
-      icon: <Heart className="w-8 h-8" />,
-      name: "Health & Fitness",
-      courses: "6,100+",
+      icon: "💼",
+      name: "Career Development",
+      description:
+        "Enhance professional skills with practical guidance for growth.",
+    },
+    {
+      icon: "🌍",
+      name: "Shariah-Compliant Investment",
+      description:
+        "Learn ethical investment strategies and analytics aligned with Shariah principles.",
+    },
+    {
+      icon: "🤝",
+      name: "Corporate Training",
+      description: "Customized workshops designed for teams and organizations.",
     },
   ];
 
   const stats = [
-    { number: "50M+", label: "Students Enrolled" },
-    { number: "100K+", label: "Courses Created" },
-    { number: "25K+", label: "Expert Instructors" },
-    { number: "190+", label: "Countries Reached" },
+    {
+      number: "🎓 Professional Training",
+      label:
+        "Courses designed for real-world applications in data, business intelligence, and Shariah-compliant investment.",
+    },
+    {
+      number: "👨‍💻 Hands-On Learning",
+      label: "Interactive sessions that combine theory with practice.",
+    },
+    {
+      number: "🌍 Diverse Industries",
+      label:
+        "Experience across technology, logistics, pharmaceuticals, education, and more.",
+    },
+    {
+      number: "📈 Career Growth",
+      label:
+        "Helping individuals and organizations make smarter, data-driven decisions.",
+    },
   ];
 
   const pricingPlans = [
@@ -245,19 +283,26 @@ const Homepage = () => {
               </h1>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Build engaging courses, connect with your audience, and grow
-                your business with our all-in-one learning platform trusted by
-                millions.
+                Empowering individuals and organizations with practical
+                expertise in data analytics, business intelligence, programming,
+                and Shariah-compliant investment. Our training programs are
+                designed to combine real-world applications with hands-on
+                learning, enabling professionals to master the tools,
+                techniques, and decision-making skills required in today’s
+                data-driven world. Whether you are looking to advance your
+                career, upskill your team, or gain specialized knowledge in
+                ethical investment, Paak Analytics Consultancy provides
+                comprehensive solutions tailored to your goals.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                  Start Free Trial
+                  Browse Courses
                   <ArrowRight className="w-5 h-5 ml-2 inline" />
                 </button>
                 <button className="border-2 border-gray-200 hover:border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 hover:bg-gray-50 flex items-center justify-center">
-                  <Play className="w-5 h-5 mr-2" />
-                  Watch Demo
+                  <Headset className="w-5 h-5 mr-2" />
+                  Contact Us
                 </button>
               </div>
 
@@ -268,7 +313,10 @@ const Homepage = () => {
             </div>
 
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
+              <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
+                <img src="https://evolllution.com/hs-fs/hubfs/Destiny/Imported_Blog_Media/AdobeStock_586188180-4.jpeg?width=600&height=400&name=AdobeStock_586188180-4.jpeg" />
+              </div>
+              {/* <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
                 <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
                   <div className="w-full h-full bg-gray-900 rounded-lg m-4 flex items-center justify-center">
                     <button className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
@@ -278,7 +326,6 @@ const Homepage = () => {
                 </div>
               </div>
 
-              {/* Floating elements */}
               <div className="absolute -top-6 -left-6 bg-white rounded-2xl p-4 shadow-lg">
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
@@ -304,7 +351,8 @@ const Homepage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              asd
             </div>
           </div>
         </div>
@@ -314,17 +362,34 @@ const Homepage = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-gray-600 text-lg">
-              Trusted by creators worldwide
+            <p className="text-black text-3xl font-bold">
+              Trusted by Learners and Professionals
+            </p>
+          </div>
+          <div className="text-center mb-12">
+            <p className="text-gray-600 text-lg ">
+              Building skills and confidence through practical, industry-focused
+              training.{" "}
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                  {stat.number}
+              <div
+                key={index}
+                className="p-6 rounded-2xl border border-gray-300 bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="flex flex-col items-center text-center">
+                  {/* Logo (emoji) */}
+                  <div className="text-4xl mb-3">
+                    {stat.number.split(" ")[0]}
+                  </div>
+                  {/* Heading text */}
+                  {/* <div className="text-xl font-bold text-purple-500 mb-2"> */}
+                  <div className="bg-gradient-to-r font-bold text-xl mb-2 from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    {stat.number.split(" ").slice(1).join(" ")}
+                  </div>
                 </div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-gray-600 text-center">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -339,8 +404,9 @@ const Homepage = () => {
               Everything you need to succeed
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From course creation to student engagement, we've got all the
-              tools you need to build a thriving online education business.
+              From skill development to career growth, Paak Analytics
+              Consultancy provides the knowledge and tools you need to excel in
+              today’s data-driven world.
             </p>
           </div>
 
@@ -350,9 +416,8 @@ const Homepage = () => {
                 key={index}
                 className="p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center mb-4 text-blue-600">
-                  {feature.icon}
-                </div>
+                {/* <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center mb-4 text-blue-600"> */}
+                <div className="text-2xl mb-2 ">{feature.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
@@ -371,7 +436,8 @@ const Homepage = () => {
               Explore popular categories
             </h2>
             <p className="text-xl text-gray-600">
-              Discover courses across diverse topics and industries
+              Discover specialized courses designed to build practical skills
+              and industry expertise.{" "}
             </p>
           </div>
 
@@ -389,6 +455,10 @@ const Homepage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
                   {category.name}
+                </h3>
+
+                 <h3 className="text-sm mt-2 text-gray-600">
+                  {category.description}
                 </h3>
               </div>
             ))}
