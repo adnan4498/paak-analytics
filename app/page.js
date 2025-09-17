@@ -63,7 +63,7 @@ const Homepage = () => {
     {
       icon: "💬",
       title: "Collaborative Learning",
-      description:
+      description: 
         "Group classes, discussions, and knowledge sharing across industries.",
     },
     {
