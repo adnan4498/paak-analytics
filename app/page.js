@@ -69,7 +69,7 @@ const Homepage = () => {
     {
       icon: "🏆",
       title: "Verified Certificates",
-      description:
+      description: 
         "Recognized certificates that can be validated online to boost your professional profile.",
     },
   ];
